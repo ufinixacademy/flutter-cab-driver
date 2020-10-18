@@ -279,6 +279,9 @@ class _NewTripPageState extends State<NewTripPage> {
 
     rideRef.child('driver_location').set(locationMap);
 
+    DatabaseReference historyRef = FirebaseDatabase.instance.reference().child('drivers/${currentFirebaseUser.uid}/history/$rideID');
+    historyRef.set(true);
+
   }
 
   void getLocationUpdates(){
